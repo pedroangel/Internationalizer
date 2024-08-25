@@ -5,7 +5,9 @@ exports.createText = async (req, res) => {
   try {
     const text = new Text(req.body);
     await text.save();
-    res.status(201).send(text);
+    res.status(201).send({
+      message: "Texto agregado exitosamente.",
+    });
   } catch (error) {
     res.status(400).send(error);
   }
@@ -58,7 +60,9 @@ exports.updateText = async (req, res) => {
     if (!text) {
       return res.status(404).send();
     }
-    res.status(200).send(text);
+    res.status(200).send({
+      message: "Texto actualizado exitosamente.",
+    });
   } catch (error) {
     res.status(400).send(error);
   }
@@ -71,7 +75,9 @@ exports.deleteText = async (req, res) => {
     if (!text) {
       return res.status(404).send();
     }
-    res.status(200).send(text);
+    res.status(200).send({
+      message: "Texto eliminado exitosamente.",
+    });
   } catch (error) {
     res.status(500).send(error);
   }
