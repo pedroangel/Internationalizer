@@ -17,7 +17,7 @@ app.use("/api", textRoutes);
 // Manejo de errores
 app.use(errorHandler);
 
-const port = 3000;
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Servidor ejecutándose`);
 });
